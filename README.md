@@ -20,10 +20,10 @@ npm install
 
 create a .env file and add these
 
-PORT=5000
-DATABASE_URL=your_neon_database_url
-JWT_SECRET=your_secret_key
-JWT_EXPIRES_IN=7d
+PORT=5000  
+DATABASE_URL=your_neon_database_url    
+JWT_SECRET=your_secret_key   
+JWT_EXPIRES_IN=7d  
 
 then run
 
