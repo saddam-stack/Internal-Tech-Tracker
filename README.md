@@ -3,7 +3,7 @@
 This is my 2nd assignment project. I built a REST API where software teams can report issues and suggest new features.
 
 # Live API
-coming soon after deployment
+https://internal-tech-tracker.vercel.app
 
 # Tech Used
 - Node.js with TypeScript
@@ -50,4 +50,6 @@ contributor can create and view issues maintainer can do everything including de
 users table has id, name, email, password, role, created_at, updated_at
 
 issues table has id, title, description, type, status, reporter_id, 
-created_at, updated_at
+created_at, updated_at  
+
+
