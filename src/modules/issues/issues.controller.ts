@@ -261,7 +261,11 @@ export const deleteIssue = async (
 
   await query('DELETE FROM issues WHERE id = $1', [id]);
 
-  sendSuccess(res, StatusCodes.OK, 'Issue deleted successfully', null);
+  res.status(StatusCodes.OK).json({
+  success: true,
+  message: 'Issue deleted successfully',
+});
+
 };
 
 export const getMetrics = async (
