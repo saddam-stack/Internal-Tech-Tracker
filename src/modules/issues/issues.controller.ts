@@ -4,7 +4,6 @@ import { query } from '../../utils/query.util';
 import { sendSuccess, sendError } from '../../utils/response.util';
 import {
   CreateIssueBody,
-  UpdateIssueBody,
   Issue,
   ReporterInfo,
   IssueType,
@@ -197,7 +196,12 @@ export const updateIssue = async (
     return;
   }
 
- if (status !== undefined) {
+  if (type !== undefined && !['bug', 'feature_request'].includes(type)) {
+    sendError(res, StatusCodes.BAD_REQUEST, 'type must be bug or feature_request.');
+    return;
+  }
+
+  if (status !== undefined) {
     if (!['open', 'in_progress', 'resolved'].includes(status)) {
       sendError(res, StatusCodes.BAD_REQUEST, 'status must be open, in_progress or resolved.');
       return;
@@ -220,6 +224,11 @@ export const updateIssue = async (
   if (description !== undefined) {
     updates.push(`description = $${paramIdx++}`);
     params.push(description);
+  }
+
+  if (type !== undefined) {
+    updates.push(`type = $${paramIdx++}`);
+    params.push(type as IssueType);
   }
 
   if (status !== undefined) {
@@ -262,10 +271,9 @@ export const deleteIssue = async (
   await query('DELETE FROM issues WHERE id = $1', [id]);
 
   res.status(StatusCodes.OK).json({
-  success: true,
-  message: 'Issue deleted successfully',
-});
-
+    success: true,
+    message: 'Issue deleted successfully',
+  });
 };
 
 export const getMetrics = async (
@@ -288,6 +296,4 @@ export const getMetrics = async (
     issues_by_type: byType.rows,
   });
 };
-
-
 
