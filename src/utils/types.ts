@@ -61,3 +61,4 @@ export interface UpdateIssueBody {
   type?: IssueType;
   status?: IssueStatus;
 }
+
