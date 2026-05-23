@@ -261,7 +261,7 @@ export const deleteIssue = async (
 
   await query('DELETE FROM issues WHERE id = $1', [id]);
 
-  sendSuccess(res, StatusCodes.OK, 'Issue deleted successfully', null);
+  res.status(StatusCodes.NO_CONTENT).send();
 };
 
 export const getMetrics = async (
