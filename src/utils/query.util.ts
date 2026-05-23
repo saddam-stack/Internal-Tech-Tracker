@@ -7,3 +7,5 @@ export const query = async (
 ): Promise<QueryResult> => {
   return pool.query(text, params);
 };
+
+

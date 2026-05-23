@@ -2,7 +2,7 @@
 
 This is my 2nd assignment project. I built a REST API where software teams can report issues and suggest new features.
 
-// Live API
+# Live API
 coming soon after deployment
 
 # Tech Used
@@ -33,13 +33,13 @@ server will start on port 5000
 
 # API List
 
-POST /api/auth/signup - create new account
-POST /api/auth/login - login and get token
-POST /api/issues - create new issue
-GET /api/issues - get all issues
-GET /api/issues/:id - get single issue
-PATCH /api/issues/:id - update issue
-DELETE /api/issues/:id - delete issue (maintainer only)
+- POST /api/auth/signup - create new account
+-POST /api/auth/login - login and get token
+- POST /api/issues - create new issue
+- GET /api/issues - get all issues
+- GET /api/issues/:id - get single issue
+- PATCH /api/issues/:id - update issue
+- DELETE /api/issues/:id - delete issue (maintainer only)
 
 # Roles
 
