@@ -123,7 +123,7 @@ export const getAllIssues = async (
 
   const issuesWithReporters = await attachReporters(result.rows as Issue[]);
 
-  sendSuccess(res, StatusCodes.OK, 'Issues fetched successfully', issuesWithReporters);
+  sendSuccess(res, StatusCodes.OK, 'Issues retrived successfully', issuesWithReporters);
 };
 
 export const getSingleIssue = async (
@@ -153,7 +153,7 @@ export const getSingleIssue = async (
     },
   };
 
-  sendSuccess(res, StatusCodes.OK, 'Issue fetched successfully', response);
+  sendSuccess(res, StatusCodes.OK, 'Issue retrived successfully', response);
 };
 
 export const updateIssue = async (
@@ -261,7 +261,7 @@ export const deleteIssue = async (
 
   await query('DELETE FROM issues WHERE id = $1', [id]);
 
-  res.status(StatusCodes.NO_CONTENT).send();
+  sendSuccess(res, StatusCodes.OK, 'Issue deleted successfully', null);
 };
 
 export const getMetrics = async (
